@@ -1,11 +1,13 @@
-#Your Task
+#Project: [Linked Lists](http://www.theodinproject.com/ruby-programming/linked-lists "Linked Lists at Odin Project")
 
-##You will need two classes:
+##Your Task
+
+###You will need two classes:
 
 1. `LinkedList` class, which will represent the full list.
-2. `Node` class, containing a '#value' method and a link to the `#next_node`, set both as `nil` by default.
+2. `Node` class, containing a `#value` method and a link to the `#next_node`, set both as `nil` by default.
 
-##Build the following methods in your linked list class:
+###Build the following methods in your linked list class:
 
 1. `#append` adds a new node to the end of the list
 2. `#prepend` adds a new node to the start of the list
@@ -18,7 +20,7 @@
 9. `#find(data)` returns the index of the node containing data, or nil if not found.
 10. `#to_s` represent your LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: `( data ) -> ( data ) -> ( data ) -> nil`
 
-##Extra Credit
+###Extra Credit
 
 1. `#insert_at(index)` that inserts the data at the given index
 2. `#remove_at(index)` that removes the node at the given index. (You will need to update the links of your nodes in the list when you remove a node.)
