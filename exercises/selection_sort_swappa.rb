@@ -36,11 +36,11 @@ def index_of_minimum(value, array)
 			pos = array.index(j)
 		end
 	end
-	# return "found #{min} at position #{pos}"
 	return pos
 end
 
 def swappa(array, firstIndex, secondIndex)
+	# puts "SWAPPATION"
 	temp               = array[firstIndex]
 	array[firstIndex]  = array[secondIndex]
 	array[secondIndex] = temp
@@ -51,15 +51,19 @@ end
 def swappaSort(array)
 	array.length.times do |j|
 		min = index_of_minimum(j, array)
-		puts array[min]
+		swappa(array, j, min) if array[min] < array[j]
 	end
-	return #array.join(", ")
+	return array.join(", ")
 end
 
 ary = [22, 11, 99, 88, 9, 7, 42]
-# puts swappaSort(ary)
+
+# puts index_of_minimum(1,ary)
 # puts index_of_minimum(2,ary)
 # 0.upto(ary.length-1) { |i| puts "starting from pos \##{i} is: #{ary[index_of_minimum(i, ary)]}" }
 
-puts swappa([7,9,4], 0, 1).join(", ")
+# puts swappa([7,9,4], 0, 1).join(", ")
 # puts swappa(ary, 0,1).join(", ")
+# puts swappa(ary,22,7).join(", ")
+
+puts swappaSort([22, 11, 99, 88, 9, 7, 42])
