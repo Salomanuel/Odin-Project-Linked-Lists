@@ -7,25 +7,12 @@ and at the minimum index.
 Write selection sort, making use of the swap and 
 indexOfMinimum functions. 
 =end
-=begin
-IMPLEMENT INDEX OF MINIMUM
-AND SWAPPA 
-AS DIFFERENT FUNCTIONS
-=end
-=begin
-var swap = function(array, firstIndex, secondIndex) {
-	var temp = array[firstIndex];
-	array[firstIndex] = array[secondIndex];
-	array[secondIndex] = temp;
-};
 
-var testArray = [7, 9, 4];
-swap(testArray, 0, 1);
-
-println(testArray);
-
-Program.assertEqual(testArray, [9, 7, 4]);
-=end
+def rando(qty, range=100)
+	list = []
+	qty.times { list << rand(range) }
+	return list.uniq
+end
 
 def index_of_minimum(value, array)
 	min = array[value]
@@ -51,7 +38,7 @@ end
 def swappaSort(array)
 	array.length.times do |j|
 		min = index_of_minimum(j, array)
-		swappa(array, j, min) if array[min] < array[j]
+		swappa(array, j, min) if array[min] <= array[j]
 	end
 	return array.join(", ")
 end
@@ -66,4 +53,6 @@ ary = [22, 11, 99, 88, 9, 7, 42]
 # puts swappa(ary, 0,1).join(", ")
 # puts swappa(ary,22,7).join(", ")
 
-puts swappaSort([22, 11, 99, 88, 9, 7, 42])
+# puts swappaSort([22, 11, 99, 88, 9, 7, 42])
+puts swappaSort(rando(200))
+# puts swappaSort([3, 3, 89, 64, 23, 23, 43, 33, 9, 16, 22, 27, 28, 31, 35, 36, 51, 71, 84, 85, 96])
