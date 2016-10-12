@@ -46,5 +46,5 @@ ary =  [22, 11, 99, 88, 9, 7, 42]
 
 # puts insert(ary, 0,ary[1]).join(", ")
 # puts insertion_sort(ary).join(", ")
-# puts insertion_sort(rando(1000)).join(", ")
-puts insertion_sort([2,5,3,4,7,2,5]).join(", ")
+puts insertion_sort(rando(1000)).join(", ")
+# puts insertion_sort([2,5,3,4,7,2,5]).join(", ")
