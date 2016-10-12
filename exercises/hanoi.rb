@@ -29,7 +29,6 @@ end
 
 def game
 
-	
 end
 
-peg_gen(5)
+peg_gen(2)
