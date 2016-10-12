@@ -12,5 +12,14 @@ def factorial(n)
 	return num
 end
 
-puts factorial(5) # => 120
-puts factorial(0) # => 1
+def rec_factorial(n)
+	return 1 if n == 0
+	return n * rec_factorial(Math.sqrt(n**2)-1)
+end
+
+# puts factorial(5) # => 120
+# puts factorial(0) # => 1
+
+puts rec_factorial(5) # => 120
+puts rec_factorial(0) # => 1
+puts rec_factorial(-1) # => 1
