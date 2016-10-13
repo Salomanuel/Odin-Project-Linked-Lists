@@ -38,18 +38,31 @@ def graphics(pegA, pegB, pegC)
 end
 
 def turn
-	turn ||= 0
-	puts "\n turn \##{turn} \n"
-	turn +=1
+	sleep(0.5)
+	@turn ||= 0
+	puts "\n turn \##{@turn} \n"
+	@turn +=1
+	# puts "turn changed to #{turn}"
 end
 
 def game
+	
+		if 		@pegA[0] == 1
+			@pegC[-1] = 1		# move disk 1 from A to C
+			@pegA[0] = 0
+		elsif @pegA[1] == 2 and @pegA[0] == 0
+			@pegB[-1] = 2		# move disk 2 from peg A to peg B; 
+			@pegA[1] = 0
+		elsif @pegC[1] == 1 and @pegB[1] == 2
+			@pegB[0] = 1
+			@pegC[1] = 0			
+		else
+			puts "done!"
+			return
+		end
 	turn
-	if @pegA[0] == 1 and @pegA[1] == 2
-		@pegC[-1] = 1		# move 
-		@pegA[0] = 0
-	end
 	graphics(@pegA,@pegB,@pegC)
+	game
 end
 
 start
