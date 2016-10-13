@@ -1,31 +1,36 @@
+=begin
+Move disk 1 from peg A to peg C; 
+move disk 2 from peg A to peg B; 
+move disk 1 from peg C to peg B
+=end
+
 def start
-	peg_gen(1)
+	peg_gen(2)
 	game
 end
 
 def peg_gen(size)
-	@peg1 = []
-	@peg2 = []
-	@peg3 = []
+	@pegA = []
+	@pegB = []
+	@pegC = []
 	
 	size.times do |i|
-		@peg1 << i+1
-		@peg2 << 0
-		@peg3 << 0
+		@pegA << i+1
+		@pegB << 0
+		@pegC << 0
 	end
 
-	return graphics(@peg1,@peg2,@peg3)
+	return graphics(@pegA,@pegB,@pegC)
 end
 
-def graphics(peg1, peg2, peg3)
-	pegs = [peg1,peg2,peg3]
-	puts peg1
+def graphics(pegA, pegB, pegC)
+	pegs = [pegA,pegB,pegC]
 	pegs.each do |peg| 
 		peg.each_index do |i|
 			if peg[i] == 0
-				puts peg[i] = "O" 
+				puts "O" 
 			else
-				puts peg[i] = "X" * peg[i]
+				puts "X" * peg[i]
 			end
 		end
 		puts "\n" 
@@ -34,17 +39,17 @@ end
 
 def turn
 	turn ||= 0
-	puts "turn \##{turn}"
+	puts "\n turn \##{turn} \n"
 	turn +=1
 end
 
 def game
 	turn
-	if @peg1[0] == 1
-		@peg2[0] == 1
-		@peg1[0] == 0
+	if @pegA[0] == 1 and @pegA[1] == 2
+		@pegC[-1] = 1		# move 
+		@pegA[0] = 0
 	end
-	graphics(@peg1,@peg2,@peg3)
+	graphics(@pegA,@pegB,@pegC)
 end
 
 start
