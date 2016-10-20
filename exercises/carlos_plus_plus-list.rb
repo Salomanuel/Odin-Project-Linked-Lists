@@ -51,3 +51,21 @@ list = LinkedList.new(h)
 puts "\nCurrent values contained in LinkedList:\n"
 
 list.print
+
+puts "\n"
+puts "Values of head and tail of LinkedList:\n"
+
+puts "\tValue of LL Head = #{list.head.value}"
+puts "\tValue of LL Tail = #{list.tail.value}"
+
+puts "\n"
+puts "Iterating through LinkedList without a block prints the list.\n"
+
+list.iterate
+
+puts "\n"
+puts "Iterating through the LinkedList with a block, runs the block on each element.\n"
+
+list.iterate { |n| puts "\tLL Node Value squared = #{n ** 2}" }
+
+puts "\n"
