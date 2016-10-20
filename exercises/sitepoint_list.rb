@@ -8,11 +8,21 @@ class Node
 
 	def self.nodes_from(node)
 		puts node.value
-		while !node.next_node.nil?
+		while node.next_node != nil
 			puts node.next_node.value
 			node = node.next_node
 		end
 	end
+
+	def self.nodes_rec(node)
+		if node.next_node == nil
+			puts node.value 
+			return
+		end
+		self.nodes_rec(node.next_node)
+		puts node.value
+	end
+
 end
 
 node1 = Node.new("first", nil)
@@ -24,6 +34,7 @@ node1.next_node = node2
 node2.next_node = node3
 node3.next_node = node4
 
-Node.nodes_from(node1)
+# Node.nodes_from(node1)
+Node.nodes_rec(node1)
 
 # puts node1.next_node.value
