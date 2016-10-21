@@ -8,7 +8,7 @@ You will need two classes:
 
 Build the following methods in your linked list class:
 * #append adds a new node to the end of the list
-*  #prepend adds a new node to the start of the list
+* #prepend adds a new node to the start of the list
   #size returns the total number of nodes in the list
   #head returns the first node in the list
   #tail returns the last node in the list
@@ -43,12 +43,21 @@ class LinkedList
 		@head.next = temp
 	end
 
-	def to_s
-		print @head.value
-		while @head.next != nil
-			print " => #{@head.next.value}"
+	def iter
+		node_list = []
+		while @head != nil
+			node_list << @head.value
 			@head = @head.next
 		end
+		return node_list
+	end
+
+	
+
+	def to_s
+		list = iter
+		print "(#{list[0]}) "
+		list[1..-1].each { |node| print "-> (#{node}) " }
 		puts
 	end
 end
@@ -64,7 +73,8 @@ class Node
 end
 
 list = LinkedList.new(node1 = Node.new("nodeFirst"))
-1.upto(4) { |i| list.append(Node.new("node#{i}")) }
+1.upto(2) { |i| list.append(Node.new("node#{i}")) }
+list.append(Node.new("last_node"))
 
 list.prepend(Node.new("pre_node1"))
 
