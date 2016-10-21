@@ -9,8 +9,8 @@ You will need two classes:
 Build the following methods in your linked list class:
 * #append adds a new node to the end of the list
 * #prepend adds a new node to the start of the list
-  #size returns the total number of nodes in the list
-  #head returns the first node in the list
+* #size returns the total number of nodes in the list
+* #head returns the first node in the list
   #tail returns the last node in the list
   #at(index) returns the node at the given index
   #pop removes the last element from the list
@@ -30,6 +30,7 @@ class LinkedList
 		raise "list should be initialized with a NODE" if node.class != Node
 		@head = node
 		@tail = node
+		@node_list = []
 	end
 
 	def append(node)
@@ -44,21 +45,27 @@ class LinkedList
 	end
 
 	def iter
-		node_list = []
 		while @head != nil
-			node_list << @head.value
+			@node_list << @head.value
 			@head = @head.next
 		end
-		return node_list
 	end
 
-	
+	def size
+		iter
+		return @node_list.length
+	end
+
+	def head
+		iter
+		return @node_list[0]
+	end
 
 	def to_s
-		list = iter
-		print "(#{list[0]}) "
-		list[1..-1].each { |node| print "-> (#{node}) " }
-		puts
+		iter
+		string = []
+		@node_list[0..-1].each { |node| string << "(#{node})" }
+		return string.join(" -> ")
 	end
 end
 
@@ -67,9 +74,6 @@ class Node
 	def initialize(value)
 		@value = value
 	end
-
-	# def next_node
-	# end
 end
 
 list = LinkedList.new(node1 = Node.new("nodeFirst"))
@@ -80,5 +84,10 @@ list.prepend(Node.new("pre_node1"))
 
 # puts node1.value
 
-list.to_s
+puts list.to_s
+puts list.to_s
+
+puts list.size
+
+puts list.head
 
