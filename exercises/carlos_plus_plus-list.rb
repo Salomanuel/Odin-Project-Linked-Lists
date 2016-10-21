@@ -20,6 +20,10 @@ class LinkedList
 		@tail      = @tail.next
 	end
 
+	def nexo
+		puts @head.next.value
+	end
+
 	def print
 		current_node = @head
 
@@ -53,19 +57,23 @@ puts "\nCurrent values contained in LinkedList:\n"
 list.print
 
 puts "\n"
-puts "Values of head and tail of LinkedList:\n"
 
-puts "\tValue of LL Head = #{list.head.value}"
-puts "\tValue of LL Tail = #{list.tail.value}"
+list.nexo
 
-puts "\n"
-puts "Iterating through LinkedList without a block prints the list.\n"
 
-list.iterate
+# puts "Values of head and tail of LinkedList:\n"
 
-puts "\n"
-puts "Iterating through the LinkedList with a block, runs the block on each element.\n"
+# puts "\tValue of LL Head = #{list.head.value}"
+# puts "\tValue of LL Tail = #{list.tail.value}"
 
-list.iterate { |n| puts "\tLL Node Value squared = #{n ** 2}" }
+# puts "\n"
+# puts "Iterating through LinkedList without a block prints the list.\n"
 
-puts "\n"
+# list.iterate
+
+# puts "\n"
+# puts "Iterating through the LinkedList with a block, runs the block on each element.\n"
+
+# list.iterate { |n| puts "\tLL Node Value squared = #{n ** 2}" }
+
+# puts "\n"
