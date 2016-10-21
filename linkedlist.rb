@@ -61,6 +61,11 @@ class LinkedList
 		return @node_list[0]
 	end
 
+	def tail
+		iter
+		return @node_list[-1]
+	end
+
 	def to_s
 		iter
 		string = []
@@ -90,4 +95,4 @@ puts list.to_s
 puts list.size
 
 puts list.head
-
+puts list.tail
