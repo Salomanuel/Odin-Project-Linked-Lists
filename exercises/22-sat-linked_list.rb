@@ -28,7 +28,9 @@ class LinkedList
 		end
 	end
 
-	
+	def shift
+		@head = @head.next
+	end
 
 	def to_s
 		first = @head
@@ -47,4 +49,5 @@ list = LinkedList.new(Node.new("headNode"))
 list.append(Node.new("tailNode"))
 list.prepend(Node.new("newHeadNode"))
 list.pop
+list.shift
 list.to_s
