@@ -35,7 +35,7 @@ class Stack
   end
 
   def push(value)
-    new_head = Node.new value, @head
+    new_head = Node.new(value), @head
     @head = new_head
   end
 
@@ -45,9 +45,9 @@ class Stack
 end
 
 
-head = Node.new 8, nil
-snd  = Node.new 7, nil
-head.next_node = snd
+# head = Node.new 8, nil
+# snd  = Node.new 7, nil
+# head.next_node = snd
 
 # puts head.reverse_list(head)
 
@@ -57,5 +57,6 @@ stack.push(2)
 stack.pop
 stack.push(8)
 stack.push(3)
-puts  stack.head
+puts stack.class	
+# puts  stack.head
 
