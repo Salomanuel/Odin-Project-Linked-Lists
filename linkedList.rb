@@ -1,3 +1,10 @@
+# Extra Credit
+
+#insert_at(index) that inserts the data at the given index
+#remove_at(index) that removes the node at the given index. 
+#(You will need to update the links of your nodes in the list when you remove a node.)
+
+
 class Node
 	attr_accessor :next, :value
 	def initialize(value)
@@ -61,6 +68,25 @@ class LinkedList
 		return uoo = iter.map { |n| n.value }.index(value)
 	end
 
+	def insert_at(i, value)
+		if i == self.size
+			self.append(value)
+		elsif i > self.size or i < 0
+			return nil
+		else
+			temp = @head
+			count = 0
+			new_node = Node.new(value)
+			while count == i
+				temp = temp.next
+				i += 1
+			end
+			temp2 = temp.next
+			temp.next = new_node
+			new_node.next = temp2
+		end
+	end
+
 	def to_s
 		first = @head
 		while !first.nil?
@@ -77,17 +103,21 @@ list = LinkedList.new(Node.new("headNode"))
 2.times{ |i| list.append("node#{i}")}
 list.append("tailNode")
 list.prepend("newHeadNode")
-puts "list size is #{list.size}"
+# puts "list size is #{list.size}"
 list.pop
 list.shift
+# list.to_s
+# puts "head is #{list.head.value}"
+# puts "tail is #{list.tail.value}"
+# puts "list size is #{list.size}"
+# puts "at position 2 is #{list.at(2)}"
+# puts "at position 0 is #{list.at(0)}"
+# puts list.contains("node0")
+# puts list.contains("banana")
+# puts list.contains("headNode")
+# puts list.find("headNode")
+# puts list.find("node1")
+puts "**"
+list.insert_at(3, "uoo")
+list.insert_at(1, "duo")
 list.to_s
-puts "head is #{list.head.value}"
-puts "tail is #{list.tail.value}"
-puts "list size is #{list.size}"
-puts "at position 2 is #{list.at(2)}"
-puts "at position 0 is #{list.at(0)}"
-puts list.contains("node0")
-puts list.contains("banana")
-puts list.contains("headNode")
-puts list.find("headNode")
-puts list.find("node1")
