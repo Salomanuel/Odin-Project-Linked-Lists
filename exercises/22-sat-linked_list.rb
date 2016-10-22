@@ -54,6 +54,10 @@ class LinkedList
 		return uoo = iter.map { |n| n.value }.include?(value)
 	end
 
+	def find(value)
+		return uoo = iter.map { |n| n.value }.index(value)
+	end
+
 	def to_s
 		first = @head
 		while !first.nil?
@@ -82,3 +86,5 @@ puts "at position 0 is #{list.at(0)}"
 puts list.contains("node0")
 puts list.contains("banana")
 puts list.contains("headNode")
+puts list.find("headNode")
+puts list.find("node1")
