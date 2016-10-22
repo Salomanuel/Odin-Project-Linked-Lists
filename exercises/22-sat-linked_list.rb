@@ -20,6 +20,16 @@ class LinkedList
 		node.next, @head = @head, node
 	end
 
+	def pop
+		first = @head
+		while !first.nil?
+			@tail, first.next = first, nil if (first.next).next.nil?			
+			first = first.next
+		end
+	end
+
+	
+
 	def to_s
 		first = @head
 		while !first.nil?
@@ -36,4 +46,5 @@ list = LinkedList.new(Node.new("headNode"))
 2.times{ |i| list.append(Node.new("node#{i}"))}
 list.append(Node.new("tailNode"))
 list.prepend(Node.new("newHeadNode"))
+list.pop
 list.to_s
