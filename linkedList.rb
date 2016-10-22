@@ -8,15 +8,18 @@ end
 class LinkedList
 	attr_accessor :head, :tail
 	def initialize(node)
+		raise "should be initialized with a node" if node.class != Node
 		@head = node
 		@tail = node
 	end
 
-	def append(node)
+	def append(data)
+		node = Node.new(data)
 		@tail.next, @tail = node, node
 	end
 
-	def prepend(node)
+	def prepend(data)
+		node = Node.new(data)
 		node.next, @head = @head, node
 	end
 
@@ -71,9 +74,9 @@ end
 list = LinkedList.new(Node.new("headNode"))
 # puts list.head.value
 
-2.times{ |i| list.append(Node.new("node#{i}"))}
-list.append(Node.new("tailNode"))
-list.prepend(Node.new("newHeadNode"))
+2.times{ |i| list.append("node#{i}")}
+list.append("tailNode")
+list.prepend("newHeadNode")
 puts "list size is #{list.size}"
 list.pop
 list.shift
