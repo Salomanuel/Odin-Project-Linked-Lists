@@ -32,6 +32,21 @@ class LinkedList
 		@head = @head.next
 	end
 
+	def iter
+		first = @head
+		ary = []
+		while !first.nil?
+			ary << first
+			first = first.next
+		end
+		return ary
+	end
+
+	def size
+		return self.iter.length
+	end
+
+
 	def to_s
 		first = @head
 		while !first.nil?
@@ -48,6 +63,10 @@ list = LinkedList.new(Node.new("headNode"))
 2.times{ |i| list.append(Node.new("node#{i}"))}
 list.append(Node.new("tailNode"))
 list.prepend(Node.new("newHeadNode"))
+puts "list size is #{list.size}"
 list.pop
 list.shift
 list.to_s
+puts "head is #{list.head.value}"
+puts "tail is #{list.tail.value}"
+puts "list size is #{list.size}"
