@@ -1,6 +1,8 @@
+# remove_at is not working currently
+
+
 # Extra Credit
 
-#insert_at(index) that inserts the data at the given index
 #remove_at(index) that removes the node at the given index. 
 #(You will need to update the links of your nodes in the list when you remove a node.)
 
@@ -87,6 +89,25 @@ class LinkedList
 		end
 	end
 
+	def delete_at(i)
+		if i > self.size or i < 0
+			raise "error, index not valid"
+		else
+			count = 0
+			temp = @head
+			until count == i - 1
+				count += 1
+				temp = temp.next
+			end
+			if i == self.size
+				temp      == @tail
+				temp.next == nil
+			else
+				temp.next = (temp.next).next
+			end
+		end
+	end
+
 	def to_s
 		first = @head
 		while !first.nil?
@@ -120,4 +141,5 @@ list.shift
 puts "**"
 list.insert_at(3, "uoo")
 list.insert_at(1, "duo")
+list.delete_at(2)
 list.to_s
